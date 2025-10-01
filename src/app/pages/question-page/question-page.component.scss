@@ -1,0 +1,98 @@
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  .container {
+    width: 50%;
+    height: 100%;
+    .wrapper {
+      .content {
+        .level-label {
+          display: flex;
+          justify-content: center;
+          p {
+            font-size: 15px;
+            background: yellowgreen;
+            font-weight: 700;
+            color: white;
+            border-radius: 20px;
+            padding: 10px;
+            width: max-content;
+          }
+        }
+        > div {
+          .question-order {
+            font-size: 30px;
+            font-weight: 700;
+            color: white;
+          }
+          .question-list {
+            font-weight: 600;
+            font-size: 20px;
+            color: white;
+          }
+          .answers-list {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 12px;
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+            .answer-button {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              padding: 8px;
+              border-radius: 12px;
+              background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+              .answer-lists {
+                color: white;
+                background: #007bff; // nice blue
+                font-weight: 600;
+                font-size: 15px;
+                font-family: Arial, Helvetica, sans-serif;
+                padding: 10px;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+
+              span {
+                flex: 1;
+                padding: 10px 15px;
+                font-weight: 600;
+                color: #212529;
+                background-color: #f1f3f5;
+                border-radius: 10px;
+              }
+            }
+
+            .answer-button:hover {
+              cursor: pointer;
+              transform: translateY(-3px) scale(1.02);
+              box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+              background: linear-gradient(135deg, #ffffff, #f1f3f5);
+            }
+
+            .answer-button:active {
+              transform: scale(0.98);
+              box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            }
+          }
+        }
+      }
+    }
+  }
+}

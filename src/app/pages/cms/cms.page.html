@@ -1,0 +1,16 @@
+<main>
+  <app-cms-sidebar />
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title routerLink="/cms" class="cms-title">CMS</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-router-outlet></ion-router-outlet>
+    </ion-content>
+  </div>
+</main>

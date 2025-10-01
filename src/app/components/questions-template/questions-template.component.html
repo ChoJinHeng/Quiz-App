@@ -1,0 +1,31 @@
+<div class="questions">
+  @if(hideQuestionsOptions) {
+  <div class="questions-wrapper">
+    <button class="single-question" (click)="toggleQuestion()">Correct / Incorrect Quiz</button>
+    <button class="multi-question" (click)="toggleQuestion()">Multi-Answer Quiz</button>
+    <button class="challenge-question" (click)="toggleQuestion()">Challenge Mode Quiz</button>
+  </div>
+
+  <div class="cancel-wrapper">
+    <button class="cancel-question" (click)="onButtonClick()">
+      Abort Game<svg
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="return-icon"
+      >
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+  </div>
+  } @if (questionSelected) {
+  <div>
+    <app-questions-answers-template />
+  </div>
+  }
+</div>

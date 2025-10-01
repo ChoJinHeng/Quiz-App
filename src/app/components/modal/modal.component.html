@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>Quiz App Form</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="content-wrapper">
+    <div class="row-one">
+      <app-quiz-type-select
+        [dynamicSelectData]="quizTypeSelect"
+        (quizTypeSelected)="updateQuizType($event)"
+      />
+      <ion-button class="success" (click)="addQuestion()"
+        >Add Question</ion-button
+      >
+    </div>
+
+    <ion-input
+      [(ngModel)]="quizData.quizTopic"
+      (ionChange)="onTopicChange()"
+      label="Quiz Topic"
+      label-placement="floating"
+      fill="outline"
+      placeholder="Enter text"
+    ></ion-input>
+
+    <div class="form-border ion-padding">
+      @for(q of questions(); track q.id) {
+      <ion-card class="ion-padding form-wrapper" color="white">
+        <div class="question-sequence">
+          <ion-button color="danger" (click)="deleteQuestion(q.id)"
+            >Delete</ion-button
+          >
+          <app-quiz-sequence-select
+            [dynamicOrderData]="questions()"
+            [currentSequence]="q.sequence"
+            (sequenceSelected)="updateSequence(q.id, $event)"
+          />
+          <app-quiz-timer [timer]="q.timer"(timerSelected)="onTimerSelected(q.id,$event)" />
+        </div>
+
+        <div class="question-title">
+          <ion-input
+            [(ngModel)]="q.title"
+            label="Question Title"
+            labelPlacement="stacked"
+            placeholder="Question Title"
+            fill="outline"
+          ></ion-input>
+        </div>
+
+        <div class="add-answer">
+          <div>
+            <ion-button color="success" (click)="addAnswer(q.id)"
+              >Add Answer</ion-button
+            >
+            <div>
+              <app-quiz-correct-answer-select
+                [answers]="q.answers"
+                [selectedIndex]="q.correctAnswers[0]"
+                (answerSelected)="onCorrectAnswerSelected(q.id, $event)"
+              />
+            </div>
+          </div>
+
+          <p>{{ q.answers.length }} / 6 Answers</p>
+        </div>
+
+        <div class="question-answer-template">
+          @for(answer of q.answers; track $index) {
+          <div>
+            <ion-input
+              [(ngModel)]="q.answers[$index]"
+              label="Answer {{ $index + 1 }}"
+              labelPlacement="stacked"
+              placeholder="Answer {{ $index + 1 }}"
+              fill="outline"
+            >
+            </ion-input>
+            <ion-button color="danger" (click)="deleteAnswer(q.id, $index)">
+              <ion-icon name="trash" class="white-icon"></ion-icon>
+            </ion-button>
+          </div>
+          }
+        </div>
+      </ion-card>
+      }
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,50 @@
+<div class="container form-area" style="overflow-y: auto">
+  <form
+    class="form-container"
+    [formGroup]="form"
+    (submit)="submit(); $event.preventDefault()"
+  >
+    <h1 class="title noselect">Login</h1>
+    <div class="input-form">
+      <input
+        type="text"
+        formControlName="username"
+        placeholder="Username"
+        class="custom-text-input"
+      />
+
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="Password"
+        class="custom-text-input"
+        (keydown)="dismissKeyboard($event)"
+      />
+    </div>
+    
+    @if(requiredError) {
+    <div style="width: 100%">
+      <p class="error">{{ requiredError }}</p>
+    </div>
+    }
+
+    <div
+      style="
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 25px;
+        margin-top: 15px;
+        width: 100%;
+        padding-right: 4px;
+      "
+    >
+      <div></div>
+    </div>
+
+    <div class="form-item">
+      <ion-button type="submit" id="loginBtn" class="login-btn"
+        >Login</ion-button
+      >
+    </div>
+  </form>
+</div>

@@ -1,0 +1,10 @@
+<div class="ion-padding">
+  <app-searchbar />
+
+  <div class="quick-actions">
+    <app-popover [dropDownDynamicData]="quizProperties" />
+    <ion-button expand="block" (click)="openModal()">
+      Create Quiz <ion-icon name="add"></ion-icon>
+    </ion-button>
+  </div>
+</div>

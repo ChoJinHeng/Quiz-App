@@ -1,0 +1,12 @@
+<ion-select
+  label="{{ dynamicSelectData[0].dataType }}"
+  label-placement="floating"
+  fill="outline"
+  (ionChange)="onTypeChange($event)"
+>
+  @for(item of dynamicSelectData[0].data; track item.id) {
+  <ion-select-option [value]="item.quizType">
+    {{ item.quizType }}
+  </ion-select-option>
+  }
+</ion-select>

@@ -1,0 +1,13 @@
+<ion-select
+  label="Timer"
+  label-placement="floating"
+  fill="outline"
+  [value]="timer"
+  (ionChange)="timerSelected.emit($event.detail.value)"
+>
+  @for (item of timerOptions; track item.id) {
+  <ion-select-option [value]="item.time">
+    {{ item.time }}
+  </ion-select-option>
+  }
+</ion-select>

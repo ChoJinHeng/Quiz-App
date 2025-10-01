@@ -1,0 +1,13 @@
+<ion-select
+  label="Correct Answer"
+  label-placement="floating"
+  fill="outline"
+  [ngModel]="selectedIndex"
+  (ngModelChange)="answerSelected.emit($event)"
+>
+  @for (answer of answers; track $index) {
+  <ion-select-option [value]="$index">
+    Answer {{ $index + 1 }}: {{ answer }}
+  </ion-select-option>
+  }
+</ion-select>

@@ -1,0 +1,21 @@
+.question {
+  font-family: 500;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.answer-container {
+  display: flex;
+  justify-content: space-between;
+  .answer {
+    display: flex;
+    font-family: 400;
+    padding: 15px;
+    border: none;
+    color: white;
+    background: black;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}

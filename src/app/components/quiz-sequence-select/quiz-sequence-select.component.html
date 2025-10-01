@@ -1,0 +1,15 @@
+<ion-select
+  label="Question Sequence"
+  label-placement="floating"
+  fill="outline"
+  [value]="currentSequence"
+  (ionChange)="onSelectChange($event)"
+>
+  <ion-select-option [value]="null">None</ion-select-option>
+
+  @for(seq of availableSequences; track seq) {
+    <ion-select-option [value]="seq">
+      {{ seq }}
+    </ion-select-option>
+  }
+</ion-select>

@@ -1,0 +1,11 @@
+<div>
+  @for (value of questions; track value.id) { @if(valueId() === value.id) {
+  <p class="question">{{ value.question }}</p>
+  <div class="answer-container">
+    @for(answers of value.choices; track answers.index) {
+    <input class="answer" type="button" value="{{ answers.answer }}" />
+    }
+  </div>
+  } }
+  <div></div>
+</div>

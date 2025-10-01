@@ -1,0 +1,32 @@
+<div class="main-container">
+  <ion-card class="container" color="light">
+    <ion-card-content class="wrapper" color="light">
+      <div class="content">
+        <div class="level-label">
+          <p>Level {{ currentLevel }} of {{ totalLevels }}</p>
+        </div>
+        @for (questionItem of questionList; track questionItem.id; let
+        questionIndex = $index ) { @if(questionIndex === questionCurrent) {
+        <div>
+          <p class="question-order">Question {{ questionIndex + 1 }}</p>
+          <p class="question-list">{{ questionItem.question }}</p>
+          <div class="answers-list">
+            @for (answer of answerLabel; track answer; let qIndex = $index) {
+            <div
+              class="answer-button"
+              (click)="
+                onSelectAnswer(questionIndex, questionItem['q_' + (qIndex + 1)])
+              "
+            >
+              <p class="answer-lists">{{ answer }}</p>
+              <span>{{ questionItem["q_" + (qIndex + 1)] }}</span>
+            </div>
+            }
+          </div>
+          <ion-button color="dark" (click)="confirmLeave()">Back</ion-button>
+        </div>
+        } }
+      </div>
+    </ion-card-content>
+  </ion-card>
+</div>

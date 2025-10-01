@@ -1,0 +1,17 @@
+<ion-button id="popover-button"
+  >{{ dropDownDynamicData[0]?.dropDownTitle }}
+  <ion-icon name="chevron-down-circle"></ion-icon>
+</ion-button>
+<ion-popover trigger="popover-button" [dismissOnSelect]="true">
+  <ng-template>
+    <ion-content>
+      <ion-list>
+        @for (item of dropDownDynamicData[0].dropDownContent; track item.id) {
+        <ion-item [button]="true">
+          {{ item.contentTitle }}
+        </ion-item>
+        }
+      </ion-list>
+    </ion-content>
+  </ng-template>
+</ion-popover>
